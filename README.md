@@ -32,6 +32,7 @@ Points
 | 1             |     0,1       |
 | 2             |     1,0       |
 | 3             |     1,1       |
+
 Having the points isn't enough in Unity. We need to fill them out with tirangles. In the case of a quad we will need two. To create the tirangle we need 3 points(vertex), and its very important in wich order we draw them. In this case, we use a clockwise (purple) order to draw both the triangles of the quad.
 
 The first triangle in order of point(vertex)= 0,1,2 (yellow)*
