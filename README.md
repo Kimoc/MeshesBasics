@@ -129,5 +129,6 @@ private void UpdateMesh()
 ```
 
 ### QUAD RESULT
+You can see the the code [here](https://github.com/Kimoc/MeshesBasics/blob/master/Meshes%20Basics/Assets/Scripts/BuildMesh.cs).
 
 <a href="https://ibb.co/4tv3VYC"><img src="https://i.ibb.co/vqyRjQf/wuad-result.png" alt="wuad-result" width="40%" height="40%"></a>
