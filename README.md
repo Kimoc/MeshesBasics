@@ -1,6 +1,6 @@
 # UNITY MESH BASICS
 
-## 1. Create a empty
+## 1. Creating a Mesh
 
 Create a empty object and first add a "Mesh Filter" component and then a "Mesh Renderer Component"
 
