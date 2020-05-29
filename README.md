@@ -5,7 +5,9 @@
 ![GitHub All Releases](https://img.shields.io/github/downloads/Kimoc/MeshesBasics/total?style=plastic)
 ![GitHub contributors](https://img.shields.io/github/contributors/Kimoc/MeshesBasics?style=plastic)
 
-### Vertices
+Basics in how to create our own meshes in unity and understand how they work.
+
+## Vertices
 
 In Unity any mesh is made of points called vertizes representing a position in the world.
 
@@ -23,7 +25,6 @@ A quad is made of 4 vertices. It is represented by an vertex array
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/vYp2cZ8/quad.png" alt="quad"
 width="30%" height="30%" ></a>
 
-Having the points isn't enough in Unity. We need to fill them out with tirangles. In the case of a quad we will need two. To create the tirangle we need 3 points(vertex), and its very important in wich order we draw them. In this case, we use a clockwise (purple) order to draw both the triangles of the quad.
 Points
 | Point         | Vertice       |
 |:-------------:|:-------------:|
@@ -31,6 +32,8 @@ Points
 | 1             |     0,1       |
 | 2             |     1,0       |
 | 3             |     1,1       |
+Having the points isn't enough in Unity. We need to fill them out with tirangles. In the case of a quad we will need two. To create the tirangle we need 3 points(vertex), and its very important in wich order we draw them. In this case, we use a clockwise (purple) order to draw both the triangles of the quad.
+
 The first triangle in order of point(vertex)= 0,1,2 (yellow)*
 The second triangle is a little more tricky = 1,3,2 (green)*
 
@@ -123,3 +126,7 @@ private void UpdateMesh()
         mesh.RecalculateNormals();
     }
 ```
+
+### QUAD RESULT
+
+<a href="https://ibb.co/4tv3VYC"><img src="https://i.ibb.co/vqyRjQf/wuad-result.png" alt="wuad-result" width="40%" height="40%"></a>
