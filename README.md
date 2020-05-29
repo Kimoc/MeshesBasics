@@ -40,8 +40,86 @@ Ass long as we use a clockwise order it does not matter the inital point of the 
 
 ------------------------------------------------------------------------------------------------------
 
-## Creating a Mesh
+## Creating a Quad
 
 Create a empty object and first add a "Mesh Filter" component and then a "Mesh Renderer Component"
 
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/tZT7zjJ/unity-mesh-filter-1.png" alt="vertizes-1" width="40%" height="40%"></a>
+
+Add a new material to the object.
+
+### Code
+Using the described coordenates system shown previously, we can implement them in a script (BuildMech) to create the triangles of our quad.
+We start creating the script and adding it to our empty object.
+On out start method we create a mesh. And them we add two new functions: CreateShape() and UpdateMesh().
+
+```csharp
+ void Start()
+    {
+        mesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mesh;
+        CreateShape();
+        UpdateMesh();
+    }
+```
+
+### CreateShape()
+
+First we create a vertex array(Vector3 in unity) and define our points.
+
+```csharp
+//POINTS
+vertices = new Vector3[]
+        {
+            new Vector3(0,0,0),// Point 0 bottom left
+            new Vector3(0,0,1),// Point 1 upper left
+            new Vector3(1,0,0),// Point 2 bottom right
+            new Vector3(1,0,1)//  Point 3 upper right
+        };
+```
+
+Once we have the points we can asign them to create triangles with and triangle array
+
+```csharp
+//TRIANGLES// 3 points, clockwise determinates wich side is visible
+
+triangles = new int[]
+        {
+            0,1,2,//First triangle
+            1,3,2 //Second triangle
+        };
+```
+
+If we wanted to apply some texture to your mesh, we can do so by createn uv array.
+
+```csharp
+//UVS//   The base texture coordinates of the Mesh.
+    // UV(W) coordinates are a normalized (0 to 1)
+    // 2-Dimensional coordinate system, where the origin (0,0)
+    // exists in the bottom left corner of the space.
+    uvs = new Vector2[]
+    {
+        new Vector2(0,1),// Point 0 bottom left
+        new Vector2(0,0),// Point 1 upper left
+        new Vector2(1,1),// Point 2 bottom right
+        new Vector2(1,0)//  Point 3 upper right
+    };
+```
+
+### UpdateShape()
+
+After creating the mesh we update clear it from prevoius data and update it with our input data (Vertices and tirangles).
+
+```csharp
+private void UpdateMesh()
+    {
+        mesh.Clear();// clear prevoius data
+        //we input or vertex and tirangles
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.uv = uvs;
+        mesh.Optimize();
+        //For lighting effects Unity uses his own set of data called normals
+        mesh.RecalculateNormals();
+    }
+```
