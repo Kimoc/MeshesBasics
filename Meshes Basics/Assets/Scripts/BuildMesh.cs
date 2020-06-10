@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
 public class BuildMesh : MonoBehaviour
 {
-
+    UnityEngine.Color gizmoColor = UnityEngine.Color.white;
+    float radiusGizColor = 0.1f;
     Mesh mesh;
 
     Vector3[] vertices; //Points (vertices)
@@ -21,7 +21,9 @@ public class BuildMesh : MonoBehaviour
         //First we indicate unity
         CreateShape();
         UpdateMesh();
+       
     }
+
     private void CreateShape()
     {
         //POINTS//
@@ -60,5 +62,17 @@ public class BuildMesh : MonoBehaviour
         mesh.uv = uvs;//aply uvs
         mesh.Optimize();
         mesh.RecalculateNormals();//For lighting effects Unity uses his own set of data called normals
+    }
+    private void OnDrawGizmos()
+    {
+        if (vertices == null)
+        {
+            return;
+        }
+        Gizmos.color = gizmoColor;
+        foreach(Vector3 vertex in vertices)
+        {
+            Gizmos.DrawSphere(transform.TransformPoint(vertex), radiusGizColor);
+        }
     }
 }
