@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
-public class BuildMesh : MonoBehaviour
+public class BuildQuad : MonoBehaviour
 {
     UnityEngine.Color gizmoColor = UnityEngine.Color.white;
     float radiusGizColor = 0.1f;
@@ -18,7 +18,6 @@ public class BuildMesh : MonoBehaviour
     {
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-        //First we indicate unity
         CreateShape();
         UpdateMesh();
        
@@ -61,7 +60,7 @@ public class BuildMesh : MonoBehaviour
         mesh.triangles = triangles;
         mesh.uv = uvs;//aply uvs
         mesh.Optimize();
-        mesh.RecalculateNormals();//For lighting effects Unity uses his own set of data called normals
+        mesh.RecalculateNormals();
     }
     private void OnDrawGizmos()
     {
