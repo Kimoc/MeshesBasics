@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b0a6689dce34624ba803e2ddff24264, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSize: 8
+  xSize: 4
   ySize: 10
 --- !u!23 &1466256118
 MeshRenderer:
